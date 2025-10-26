@@ -2,7 +2,7 @@ import "https://deno.land/x/xhr@0.1.0/mod.ts";
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.57.2';
 
-const AI_API_KEY = Deno.env.get('LOVABLE_API_KEY');
+const AI_API_KEY = Deno.env.get('AI_API_KEY');
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -72,7 +72,8 @@ Retorne as sugestões em formato JSON:
   ]
 }`;
 
-    const suggestionsResponse = await fetch('https://ai.gateway.lovable.dev/v1/chat/completions', {
+    const suggestionsResponse = await fetch('https://api.openai.com/v1/chat/completions', {
+      
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${AI_API_KEY}`,
@@ -121,7 +122,7 @@ Retorne em formato JSON:
 
 Similarity score deve ser entre 0 e 1, onde 1 é idêntico.`;
 
-      const similarityResponse = await fetch('https://ai.gateway.lovable.dev/v1/chat/completions', {
+      const similarityResponse = await fetch('https://api.openai.com/v1/chat/completions', {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${AI_API_KEY}`,
