@@ -1,0 +1,13 @@
+project_id = "qfrijzddxftftnpegdhf"
+
+[functions.sustainability-ai]
+verify_jwt = false
+
+[functions.send-status-notification]
+verify_jwt = false
+
+[functions.ai-analyze-idea]
+verify_jwt = false
+
+[functions.export-ideas]
+verify_jwt = false
